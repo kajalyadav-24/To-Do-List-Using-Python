@@ -1,45 +1,79 @@
-# To-Do List App
+# To-Do-List-Using-Python
 
-This repository contains code for creating a simple To-Do List application using Python and Streamlit. The application allows users to manage their tasks by adding new tasks, marking tasks as completed, and clearing the task list. The tasks are stored in a CSV file for persistence.
+A simple To-Do List web application built using Python and Streamlit.
 
-## Usage
+The application allows users to manage tasks by adding new tasks, viewing the current task list, and clearing all tasks. Tasks are stored in a CSV file for persistence.
 
-To use the To-Do List application, you can follow these steps:
+## Features
 
-1. Install the necessary dependencies by running the following command:
-   ```
-   pip install streamlit
-   ```
+- Add new tasks
+- View current tasks
+- Clear all tasks
+- Store tasks using a CSV file
+- Simple web interface using Streamlit
 
-2. Clone the repository:
-   ```
-   git clone <repository_url>
-   ```
+## Technologies Used
 
-3. Navigate to the project directory:
-   ```
-   cd to-do-list
-   ```
+- Python
+- Streamlit
+- CSV
 
-4. Run the application using Streamlit:
-   ```
-   streamlit run main.py
-   ```
+## Installation
 
-5. A web app will open in your browser, displaying the To-Do List interface.
+1. Clone the repository:
 
-6. To add a new task, type the task description in the "Add a new task" input box and click the "Add" button.
+```bash
+git clone https://github.com/kajalyadav-24/To-Do-List-Using-Python.git
+```
 
-7. To mark a task as completed, click the checkbox next to the task.
+2. Navigate to the project directory:
 
-8. To clear all tasks, click the "Clear all tasks" button.
+```bash
+cd To-Do-List-Using-Python
+```
 
-## Repository Files
+3. Install the required dependencies:
 
-- `main.py`: This file contains the main code for the To-Do List application. It uses the Streamlit library for building the user interface and handles task management functions.
+```bash
+pip install -r requirements.txt
+```
 
-- `tasks.csv`: This CSV file is used to store the tasks. Each task is stored as a separate row in the file.
+## Run the Application
 
-## Streamlit Web App
+Run the Streamlit application using:
 
-You can access the web app for the To-Do List application [here](https://deepankarvarma-to-do-list-using-python-app-ha3czj.streamlit.app/). The app provides an interactive interface for managing your tasks.
+```bash
+streamlit run app.py
+```
+
+The application will open in your web browser.
+
+## How to Use
+
+1. Enter a task in the **Add a new task** input field.
+2. Click **Add** to add the task.
+3. The current tasks will be displayed on the page.
+4. Click **Clear all tasks** to remove all tasks.
+
+## Repository Structure
+
+```text
+To-Do-List-Using-Python/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+└── tasks.csv
+```
+
+### app.py
+
+Contains the main Streamlit application code and task management logic.
+
+### requirements.txt
+
+Contains the Python dependencies required to run the application.
+
+### tasks.csv
+
+Stores the To-Do List tasks.
