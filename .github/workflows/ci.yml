@@ -1,0 +1,23 @@
+name: Todo App CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v6
+
+      - name: Check Docker version
+        run: docker --version
+
+      - name: Build Docker image
+        run: docker build -t todo-list-app:latest .
+
+      - name: Show Docker images
+        run: docker images
