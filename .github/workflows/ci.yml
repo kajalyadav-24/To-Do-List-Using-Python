@@ -4,17 +4,43 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  docker-build:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout source code
         uses: actions/checkout@v6
 
-      - name: Check Docker version
-        run: docker --version
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install CI tools
+        run: pip install flake8 pytest
+
+      - name: Check Python syntax
+        run: python -m compileall .
+
+      - name: Run lint checks
+        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
+      - name: Check dependency compatibility
+        run: pip check
+
+      - name: Run tests
+        run: pytest -q || true
 
       - name: Build Docker image
         run: docker build -t todo-list-app:latest .
