@@ -1,15 +1,12 @@
 name: Todo App CD
 
 on:
-  workflow_run:
-    workflows:
-      - "Todo App CI"
-    types:
-      - completed
+  push:
+    branches:
+      - main
 
 jobs:
   deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -62,5 +59,3 @@ jobs:
               --restart unless-stopped \
               -p 8501:8501 \
               987020212262.dkr.ecr.ap-south-1.amazonaws.com/todo-list-app:latest
-
-
